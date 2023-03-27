@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-auto side-nav">
+       <app-side-nav (value)="getValue($event)"></app-side-nav>
+      </div>
+      <div class="col-auto main-content col-lg-9 col-sm-12">
+        <app-main-content [value]="values"></app-main-content>
+      </div>
+    </div>
+  </div>
+</div>

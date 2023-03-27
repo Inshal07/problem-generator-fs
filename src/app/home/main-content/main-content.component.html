@@ -1,0 +1,15 @@
+<div [ngSwitch]="value !=''" class="m-2">
+  <div *ngSwitchCase="value == 'dashboard'">
+    <app-dashboard></app-dashboard>
+  </div>
+  <div *ngSwitchCase="value == 'pendingTask'">
+    <app-pending-task></app-pending-task>
+  </div>
+  <div *ngSwitchCase="value == 'assignedMe'">
+    <app-assigned-me></app-assigned-me>
+  </div>
+  <div *ngSwitchCase="value == 'create-task'">
+    <app-task-creator (value)="getRouteValue($event)"></app-task-creator>
+  </div>
+  <div *ngSwitchDefault>output2</div>
+</div>

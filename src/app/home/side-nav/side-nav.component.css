@@ -1,0 +1,11 @@
+.side-nav{
+  height: 85vh;
+  border-radius: 7px;
+}
+
+.nav-link:active, :focus, :target{
+  color: white;
+  border-radius: 7px;
+  background-color: rgb(0, 102, 255);
+}
+

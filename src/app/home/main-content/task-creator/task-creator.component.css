@@ -1,0 +1,17 @@
+*{
+  font-size: 14px;
+}
+
+.form-control, .form-select{
+  margin-top: 3px;
+  height: 33px;
+}
+
+.textarea-form{
+  height: 14.5rem;
+}
+
+.title-text{
+  font-size: 18px;
+}
+

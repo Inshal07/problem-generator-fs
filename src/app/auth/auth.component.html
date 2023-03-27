@@ -1,0 +1,45 @@
+
+<div class="container">
+
+  <div class="jumbotron">
+    <p class="display-6 text-center">Register Here</p>
+    <form [formGroup]="userForm">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" formControlName="username" placeholder="jack02" id="username" >
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="example@gem.com" id="email" >
+        <small *ngIf="userForm.get('email').errors?.pattern" class="text-danger"> Type email correctly </small>
+      </div>
+      <div class="mb-3">
+        <label for="role" class="form-label">Role</label>
+        <input type="text" class="form-control" formControlName="role" placeholder="Software Developer" id="role">
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+         <select class="form-select" formControlName="category">
+          <option value="" selected>A/B/C</option>
+          <option *ngFor="let item of categoryList" [value]="item">{{item}}</option>
+         </select>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="*******" id="exampleInputPassword1">
+      </div>
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" formControlName="confirmPassword"  placeholder="Retype-Password" id="confirmPassword">
+        <small *ngIf="userForm.get('confirmPassword').touched  && userForm.value.password != userForm.value.confirmPassword" class="text-danger"> Password does not match</small>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary " [disabled]="!userForm.valid"  (click)="submitUserDetail()">SignUp</button>
+      </div>
+    </form>
+    <hr>
+    <div class="text-center p-3">
+     <span>Already a user? <a href="#">login</a></span>
+    </div>
+  </div>
+</div>

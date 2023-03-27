@@ -1,0 +1,64 @@
+<div class="container-fluid">
+
+  <div class="mt-3">
+    <p class="title-text">Create Task</p>
+    <form [formGroup]="taskForm">
+
+      <div class="row mt-3">
+        <div class="col">
+          <div class="mb-2">
+            <label for="shdescription">Title</label>
+            <input type="text" class="form-control" id="shdescription" placeholder="Enter the title" formControlName="taskTitle">
+          </div>
+          <div class="mb-2">
+            <label for="description">Description</label>
+            <textarea name="descrption" id="descrption" class="form-control textarea-form" formControlName="taskDescription"></textarea>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row mb-2">
+            <div class="col">
+              <label for="datecurrent">Assigned Date</label>
+              <input type="date" class="form-control" id="datecurrent" formControlName="currentDate" >
+            </div>
+            <div class="col">
+              <label for="deadline">Deadline</label>
+              <input type="date" class="form-control" id="deadline" formControlName="endDate">
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="priority">Priority</label>
+            <select class="form-select" formControlName="priority">
+              <option value="" selected>Select priority</option>
+              <option *ngFor="let item of priorityList" [value]="item">{{item}}</option>
+             </select>
+            </div>
+          <div class="mb-2">
+            <label for="priority">Status</label>
+             <select class="form-select" formControlName="status">
+              <option value="" selected>Select Status</option>
+              <option *ngFor="let item of statusList" [value]="item">{{item}}</option>
+             </select>
+          </div>
+          <div class="mb-2">
+            <label for="assignedTo">Assigned To</label>
+            <input list="emailList" value="" class="form-control"  formControlName="assignedTo">
+            <datalist id="emailList" formControlName="assignedTo">
+              <option *ngFor="let item of userEmailsList" [value]="item">{{item}}</option>
+            </datalist>
+          </div>
+          <div class="mb-2">
+            <label for="assignedFrom">Assigned From</label>
+            <input type="text" [attr.readonly]="disabled" class="form-control" id="assignedFrom" formControlName="assignedFrom" [placeholder]="userData.email"  >
+          </div>
+        </div>
+      </div>
+      <div class="button-submit  text-end">
+        <button class="btn btn-primary"  (click)="submitTask()">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>

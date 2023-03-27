@@ -1,0 +1,36 @@
+
+<div class="container mt-3">
+  <nav class="navbar">
+      <a class="navbar-brand" >Pending Task</a>
+      <form class="d-flex" role="search">
+        <div class="mb-2">
+          <select class="form-select" [(ngModel)]="statusValue" #item (change)="getPendingTask(item.value)">
+             <option *ngFor="let item of statusList" [value]="item">{{item}}</option>
+           </select>
+          </div>
+      </form>
+  </nav>
+  <h4 *ngIf="taskData == ''">No Task Avaliable</h4>
+  <table   class="table p-2 table-striped"  >
+    <thead>
+      <tr>
+        <th scope="col">Sr No.</th>
+        <th scope="col">Task Description</th>
+        <th scope="col">Assigned To</th>
+        <th scope="col">Assigned By</th>
+        <th scope="col">Status</th>
+        <th scope="col">Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+       <tr class="table-row" *ngFor="let item of taskData; let i=index">
+        <th scope="row">{{i +1}}</th>
+        <td>{{item.taskTitle}}</td>
+        <td>{{item.assignedTo}}</td>
+        <td>{{item.assignedFrom}}</td>
+        <td>{{item.status}}</td>
+        <td>{{item.priority}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

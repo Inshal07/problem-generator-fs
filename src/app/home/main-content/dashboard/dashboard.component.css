@@ -1,0 +1,22 @@
+.table{
+  font-size: 14px;
+}
+
+tr{
+  border-radius: 10px;
+}
+
+.form-control, .btn-outline-primary{
+  border-radius: 7px 0px 0px 7px;
+  font-size: 14px;
+  height: 33px;
+}
+
+.form-control{
+  border-radius: 7px 0px 0px 7px;
+}
+.btn-outline-primary{
+  padding: 2px;
+  width: 35px;
+  border-radius: 0px 7px 7px 0px;
+}

@@ -15,7 +15,7 @@ export class PendingTaskComponent {
   constructor(
     private taskService: TaskService
   ){
-
+    this.getPendingTask('Assigned')
   }
 
   getPendingTask(value: any){

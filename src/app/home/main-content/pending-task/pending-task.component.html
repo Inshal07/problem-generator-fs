@@ -5,13 +5,14 @@
       <form class="d-flex" role="search">
         <div class="mb-2">
           <select class="form-select" [(ngModel)]="statusValue" #item (change)="getPendingTask(item.value)">
+            <option [value]="statusValue" selected>Select Status</option>
              <option *ngFor="let item of statusList" [value]="item">{{item}}</option>
            </select>
           </div>
       </form>
   </nav>
   <h4 *ngIf="taskData == ''">No Task Avaliable</h4>
-  <table   class="table p-2 table-striped"  >
+  <table *ngIf="taskData != ''"  class="table p-2 table-striped"  >
     <thead>
       <tr>
         <th scope="col">Sr No.</th>

@@ -1,17 +1,25 @@
 <div class="container mt-3">
   <nav class="navbar">
-      <a class="navbar-brand" >Dashboard</a>
+      <!--
       <div class="d-flex" role="search">
-        <input class="form-control" type="text" placeholder="Search" [ngModel]="filterTerm" (ngModelChange)="changeValue($event)">
-        <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search "  ></i></button>
+        <input class="form-control" type="text" placeholder="Search" [(ngModel)]="filterTerm"  >
       </div>
+       -->
+       <a class="navbar-brand" >Dashboard</a>
+      <div class="d-flex  mb-3">
+        <input type="text" class="form-control" aria-label="Text input with dropdown button " placeholder="Search" [(ngModel)]="filterTerm">
+        <select class="form-select" [(ngModel)]="category">
+          <option selected value="option">Category</option>
+          <option *ngFor="let item of categoryList" [value]="item">{{item}}</option>
+        </select>
+    </div>
   </nav>
   <h4 *ngIf="taskList == ''">No Task Avaliable</h4>
   <table   class="table p-2 table-striped"  >
     <thead>
       <tr>
-        <!-- <th scope="col">Sr No.</th> -->
-        <th scope="col">Task Description</th>
+        <th scope="col">Sr No.</th>
+        <th scope="col">Task Title</th>
         <th scope="col">Assigned To</th>
         <th scope="col">Assigned By</th>
         <th scope="col">Status</th>
@@ -19,8 +27,8 @@
       </tr>
     </thead>
     <tbody>
-       <tr class="table-row" *ngFor="let item of taskList; let i=index">
-        <th scope="row">{{i +1}}</th>
+       <tr class="table-row" *ngFor="let item of taskList | filterPipe: filterTerm: category; let i = index">
+         <th scope="row">{{i +1}}</th>
         <td>{{item.taskTitle}}</td>
         <td>{{item.assignedTo}}</td>
         <td>{{item.assignedFrom}}</td>

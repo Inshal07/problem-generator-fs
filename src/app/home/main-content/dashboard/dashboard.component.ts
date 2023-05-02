@@ -12,8 +12,14 @@ export class DashboardComponent implements OnInit {
   @Output('ngModelChange') update = new EventEmitter();
 
   filterTerm!:any;
+  category:string = 'taskTitle'
   user:any
   taskList: Observable<Task> |any;
+
+  categoryList:any = [
+    'Task Title', 'Status', 'Assigned To', 'Assigned From', 'Priority'
+  ]
+
   constructor(
     private taskAPI: TaskService
   ) {
@@ -30,21 +36,10 @@ export class DashboardComponent implements OnInit {
     this.taskAPI.getTask().subscribe(
       res => {
         this.taskList =res
+        console.log(this.taskList);
+
       }
     )
   }
-
-  changeValue(value:any){
-    this.filterTerm = value
-    console.log(this.filterTerm);
-    this.taskList = this.taskList.filter((item:any)=> {
-      return item.taskTitle
-    } )
-    console.log(this.taskList);
-
-  }
-
-
-
 
 }

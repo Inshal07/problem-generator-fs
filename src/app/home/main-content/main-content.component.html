@@ -11,5 +11,8 @@
   <div *ngSwitchCase="value == 'create-task'">
     <app-task-creator (value)="getRouteValue($event)"></app-task-creator>
   </div>
+  <div *ngSwitchCase="value == 'delete-task'">
+        <app-delete-task></app-delete-task>
+  </div>
   <div *ngSwitchDefault>output2</div>
 </div>

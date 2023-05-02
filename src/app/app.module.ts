@@ -18,7 +18,8 @@ import { AssignedMeComponent } from './home/main-content/assigned-me/assigned-me
 import { TaskCreatorComponent } from './home/main-content/task-creator/task-creator.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PendingTaskComponent } from './home/main-content/pending-task/pending-task.component';
-
+import { FilterPipe } from './pipes/filter.pipe';
+import { DeleteTaskComponent } from './home/main-content/delete-task/delete-task.component';
 
 
 
@@ -35,6 +36,8 @@ import { PendingTaskComponent } from './home/main-content/pending-task/pending-t
     AssignedMeComponent,
     TaskCreatorComponent,
     PendingTaskComponent,
+    FilterPipe,
+    DeleteTaskComponent,
 
   ],
   imports: [
